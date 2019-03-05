@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pnp:ProvisioningTemplate ID="SPECIALTEAM" Version="1.0" 
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2018/07/ProvisioningSchema">
+
+<pnp:Security BreakRoleInheritance="true" CopyRoleAssignments="false" ClearSubscopes="true">
+        <pnp:AdditionalAdministrators>
+          <pnp:User Name="david@folkis2018.onmicrosoft.com"/>
+        </pnp:AdditionalAdministrators>
+        <pnp:AdditionalOwners>
+            <pnp:User Name="david@folkis2018.onmicrosoft.com"/>
+        </pnp:AdditionalOwners>
+        <pnp:AdditionalMembers>
+            <pnp:User Name="david@folkis2018.onmicrosoft.com"/>
+        </pnp:AdditionalMembers>
+        <pnp:AdditionalVisitors>
+            <pnp:User Name="anton@folkis2018.onmicrosoft.com"/>
+        </pnp:AdditionalVisitors>
+        <pnp:SiteGroups>
+          <pnp:SiteGroup
+              Title="Power Users"
+              Description="Group of Power Users"
+              Owner="david@folkis2018.onmicrosoft.com">
+            <pnp:Members>
+              <pnp:User Name="anton@folkis2018.onmicrosoft.com" />
+              <pnp:User Name="david@folkis2018.onmicrosoft.com" />
+            </pnp:Members>
+          </pnp:SiteGroup>
+        </pnp:SiteGroups>
+        <pnp:Permissions>
+          <pnp:RoleDefinitions>
+            <pnp:RoleDefinition Name="Manage List Items" Description="Allows a user to manage list items">
+              <pnp:Permissions>
+                <pnp:Permission>ViewListItems</pnp:Permission>
+                <pnp:Permission>AddListItems</pnp:Permission>
+                <pnp:Permission>EditListItems</pnp:Permission>
+                <pnp:Permission>DeleteListItems</pnp:Permission>
+              </pnp:Permissions>
+            </pnp:RoleDefinition>
+          </pnp:RoleDefinitions>
+          <pnp:RoleAssignments>
+            <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Manage List Items"/>
+            <pnp:RoleAssignment Principal="david@folkis2018.onmicrosoft.com" RoleDefinition="Manage List Items"/>
+          </pnp:RoleAssignments>
+        </pnp:Permissions>
+      </pnp:Security>
+
+
+    <pnp:SiteFields>
+        <Field ID="{39884429-6595-498d-9947-707fa17005dc}" Type="Text" Name="Column1" DisplayName="Column1" Group="DavidsCols" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{cafae64f-e2e5-4873-97c6-12b0cd77f196}" Type="Text" Name="Column2" DisplayName="Column2" Group="DavidsCols" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{ae0659b1-dc13-46e4-b371-2a272ba26cae}" List="Lists/LookUpList" Type="Lookup" Name="ColLookup" DisplayName="LookUp" Group="DavidsCols" Required="FALSE" ShowField="Title" AllowDeletion="TRUE" />
+    </pnp:SiteFields>
+
+    <pnp:ContentTypes>
+        <pnp:ContentType ID="0x01007825733f53d548788d7d941980a62dc0" Name="Fun Content Type" Group="Davids Content TYpes" Description="">
+            <pnp:FieldRefs>
+                <!-- Column1 -->
+                <pnp:FieldRef ID="{39884429-6595-498d-9947-707fa17005dc}" />
+                <!-- Column2 -->
+                <pnp:FieldRef ID="{cafae64f-e2e5-4873-97c6-12b0cd77f196}" />
+                <!-- Lookup -->
+                <pnp:FieldRef ID="{ae0659b1-dc13-46e4-b371-2a272ba26cae}" />
+            </pnp:FieldRefs>
+        </pnp:ContentType>
+    </pnp:ContentTypes>
+    <pnp:Lists>
+        <pnp:ListInstance Title="Fun List" EnableFolderCreation="false" Description="Fun List" OnQuickLaunch="true" TemplateType="100" Url="Lists/FunList" RemoveExistingContentTypes="false" ContentTypesEnabled="true">
+            <pnp:ContentTypeBindings>
+                <pnp:ContentTypeBinding ContentTypeID="0x01007825733f53d548788d7d941980a62dc0" Default="true"/>
+                <pnp:ContentTypeBinding ContentTypeID="0x01" Remove="true"/>
+            </pnp:ContentTypeBindings>
+            <pnp:Views RemoveExistingViews="true">
+                <View Name="658c8d48-323c-4feb-bb86-5b248e4dd184" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Items" Url="{site}/Lists/FunList/Forms/AllItems.aspx" Level="1" BaseViewID="1" >
+                    <ViewFields>
+                        <FieldRef Name="Title" />
+                        <FieldRef Name="Column1" />
+                        <FieldRef Name="Column2" />
+                        <FieldRef Name="ColLookup" />
+                    </ViewFields>
+                    <RowLimit Paged="TRUE">30</RowLimit>
+                    <JSLink>clienttemplates.js</JSLink>
+                </View>
+            </pnp:Views>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Lookup List" Description="Lookup List" OnQuickLaunch="true" TemplateType="100" Url="Lists/LookUpList">
+            <pnp:DataRows>
+                <pnp:DataRow>
+                    <pnp:DataValue FieldName="Title">Lookup 1</pnp:DataValue>
+                </pnp:DataRow>
+                <pnp:DataRow>
+                    <pnp:DataValue FieldName="Title">Lookup 2</pnp:DataValue>
+                </pnp:DataRow>
+                <pnp:DataRow>
+                    <pnp:DataValue FieldName="Title">Lookup 3</pnp:DataValue>
+                </pnp:DataRow>
+            </pnp:DataRows>
+        </pnp:ListInstance>
+    </pnp:Lists>
+</pnp:ProvisioningTemplate>

@@ -1,0 +1,25 @@
+<View Name="{529F260C-EB09-46A0-B695-68AAE960C4B6}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView ="TRUE" Type="HTML" DisplayName="All Items" Url="/sites/David/Lists/FunList/AllItems.aspx" Level="1" BaseV iewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=45">
+    <Query>
+        <OrderBy>
+            <FieldRef Name="ID" />
+        </OrderBy>
+        <Where>
+            <Eq>
+                <FieldRef Name="ColLookup" />
+                <Value Type="Text">Lookup 1</Value>
+            </Eq>
+        </Where>
+    </Query>
+    <ViewFields>
+        <FieldRef Name="Title" />
+        <FieldRef Name="Column1" />
+        <FieldRef Name="Column2" />
+        <FieldRef Name="ColLookup" />
+    </ViewFields>
+    <RowLimit Paged="TRUE">30</RowLimit>
+    <Aggregations Value="Off" />
+    <JSLink>clienttemplates.js</JSLink>
+    <XslLink Default="TRUE">main.xsl</XslLink>
+    <Toolbar Type="Standard"/>
+</View
+>

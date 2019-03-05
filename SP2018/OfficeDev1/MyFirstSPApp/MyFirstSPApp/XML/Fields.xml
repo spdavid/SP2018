@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Fields>
+
+  <Field Type="UserMulti" 
+         DisplayName="userone" 
+         List="UserInfo" 
+         Required="FALSE" 
+         EnforceUniqueValues="FALSE" 
+         ShowField="ImnName" 
+         UserSelectionMode="PeopleAndGroups" 
+         UserSelectionScope="0" 
+         Mult="TRUE" 
+         Sortable="FALSE" 
+         Group="Davids Columns" 
+         ID="{AC9B519A-E773-43B3-831E-88192B06C699}" 
+         StaticName="userone" 
+         Name="userone" />
+
+  <Field Type="UserMulti"
+         DisplayName="usertwo"
+         List="UserInfo"
+         Required="FALSE"
+         EnforceUniqueValues="FALSE"
+         ShowField="ImnName"
+         UserSelectionMode="PeopleAndGroups"
+         UserSelectionScope="0"
+         Mult="TRUE"
+         Sortable="FALSE"
+         Group="Davids Columns"
+         ID="{AC97D909-3730-472F-9A37-841266C0AFFE}"
+         StaticName="usertwo"
+         Name="usertwo" />
+
+
+
+
+</Fields>

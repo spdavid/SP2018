@@ -1,0 +1,6 @@
+{
+  "queues": {
+    "maxPollingInterval": 1000,
+    "batchSize": 10
+  }
+}
