@@ -1,0 +1,50 @@
+
+#div1, #div2
+{
+    float:left;
+    height:30px;
+    color:#fff;
+    font-weight: bold;
+}
+
+#div1
+{
+    width:75%;
+    background-color: chocolate
+}
+
+#div2
+{
+    width:25%;
+    background-color: darkslategrey;
+}
+
+
+@media only screen and (max-width: 450px) {
+    #div1, #div2
+    {
+        width : 100%;
+    }
+}
+
+
+/* bootstrap page */
+#bootstrapContent
+{
+    margin:10px;
+}
+#bootstrapContent img
+{
+    width:100%
+}
+
+.box
+{
+    margin-right: 5px;
+    margin-top:20px;
+    border : 1px solid grey;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 3px;
+}
+

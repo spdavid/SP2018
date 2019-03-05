@@ -1,0 +1,72 @@
+﻿
+
+
+body {
+    background-color : #e6ecdc;
+   
+}
+
+/* For Index.html*/
+
+#mainContent {
+    color: #ff0000;
+    font-size: 14px;
+}
+
+h2 {
+    color: #0300ff;
+}
+
+.green
+{
+    color:green;
+}
+
+.bigDiv {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.someDiv {
+    background-color: #f990ff;
+    /*border-color : #0300ff;
+    border-style: solid;
+    border-width : 4px;*/
+    border: 4px solid #0300ff;
+    padding: 10px;
+    margin: 5px;
+
+    width: 75%;
+    
+}
+
+/****************************/
+/*AssignmentMoveOptions Page*/
+/*00000000000000000000000000*/
+
+#assignmentContent {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.selectContainer
+{
+    float:left;
+}
+
+.selectContainer select{
+    min-width: 150px;
+    margin: 10px;
+}
+
+.buttonContainer{
+    float: left;
+    padding-top:20px;
+}
+
+.buttonContainer input{
+    display:block;
+    margin:5px;
+}
+

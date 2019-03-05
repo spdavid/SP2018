@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="Styles/Styles.css" rel="stylesheet" />
+    <script src="Scripts/main.js"></script>
+</head>
+<body>
+
+    <div id="assignmentContent">
+        <div class="selectContainer">
+            <select id="leftSelect" class="selectElement" size="10" multiple>
+                <option value="option1">option1</option>
+                <option value="option2">option2</option>
+                <option value="option3">option3</option>
+                <option value="option4">option4</option>
+            </select>
+        </div>
+        <div class="buttonContainer">
+            <input type="button" value="-->" onclick='moveOption("right")' />
+            <input type="button" value="<--" onclick='moveOption("left")'  />
+        </div>
+        <div class="selectContainer">
+            <select  id="rightSelect" size="10" multiple></select>
+        </div>
+    </div>
+
+</body>
+</html>
