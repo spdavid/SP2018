@@ -1,0 +1,35 @@
+﻿#main
+{
+    padding:20px;
+   
+}
+
+#searchRow {
+   margin-top:50px;
+   margin-bottom:50px;
+}
+
+#logo{
+    width:100%;
+    max-width:150px;
+}
+
+.item {
+    border: 1px solid black;
+    width: 33%;
+    height: 150px;
+    float: left;
+    width:300px;
+    margin: 10px;
+}
+
+.item img
+{
+    width : 40%;
+    float:left;
+}
+
+    .item div {
+        width: 40%;
+        float: left;
+    }
