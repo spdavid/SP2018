@@ -9,6 +9,7 @@ import {
 
 import * as strings from 'HelloWorldWebPartStrings';
 import HelloWorld, { IHelloWorldProps } from './components/HelloWorld';
+import { sp } from "@pnp/sp";
 
 
 export interface IHelloWorldWebPartProps {
@@ -16,6 +17,17 @@ export interface IHelloWorldWebPartProps {
 }
 
 export default class HelloWorldWebPart extends BaseClientSideWebPart<IHelloWorldWebPartProps> {
+
+  public onInit(): Promise<void> {
+
+    return super.onInit().then(_ => {
+
+      // other init code may be present
+      sp.setup({
+        spfxContext: this.context
+      });
+    });
+  }
 
   public render(): void {
 
