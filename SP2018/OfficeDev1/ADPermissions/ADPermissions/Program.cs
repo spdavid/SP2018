@@ -2,6 +2,7 @@
 using Microsoft.SharePoint.Client;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -13,43 +14,52 @@ namespace ADPermissions
     {
         static void Main(string[] args)
         {
-           var ctx = ContextHelper.GetContext();
+            string siteUrl = ConfigurationManager.AppSettings["siteUrl"];
 
-            List list = ctx.Web.GetListByTitle("SampleList");
-
-            Console.WriteLine(list.CurrentChangeToken.StringValue);
-
-
-           var lastCheckedString = list.GetPropertyBagValueString("lastchecked", null);
-
-
-
-            ChangeQuery query = new ChangeQuery(false, false);
-            query.Item = true;
-            query.Add = true;
-            query.Update = true;
-            query.DeleteObject = true;
-            if (lastCheckedString != null)
-            {
-                ChangeToken token = new ChangeToken();
-                token.StringValue = lastCheckedString;
-                query.ChangeTokenStart = token;
-            }
-            query.ChangeTokenEnd = list.CurrentChangeToken;
-
-            ChangeCollection changes = list.GetChanges(query);
-
-            ctx.Load(changes);
+            var ctx = ContextHelper.GetContext(siteUrl);
+            ctx.Load(ctx.Web);
             ctx.ExecuteQuery();
 
-            foreach (ChangeItem change in changes)
-            {
-                Console.WriteLine(change.ItemId);
-                Console.WriteLine(change.ChangeType.ToString());
-               
-            }
+            SiteCreationHelper.CreateOffice365Group();
 
-            list.SetPropertyBagValue("lastchecked", list.CurrentChangeToken.StringValue);
+            Console.WriteLine(ctx.Web.Title);
+
+
+           // List list = ctx.Web.GetListByTitle("SampleList");
+
+           // Console.WriteLine(list.CurrentChangeToken.StringValue);
+
+
+           //var lastCheckedString = list.GetPropertyBagValueString("lastchecked", null);
+
+
+
+           // ChangeQuery query = new ChangeQuery(false, false);
+           // query.Item = true;
+           // query.Add = true;
+           // query.Update = true;
+           // query.DeleteObject = true;
+           // if (lastCheckedString != null)
+           // {
+           //     ChangeToken token = new ChangeToken();
+           //     token.StringValue = lastCheckedString;
+           //     query.ChangeTokenStart = token;
+           // }
+           // query.ChangeTokenEnd = list.CurrentChangeToken;
+
+           // ChangeCollection changes = list.GetChanges(query);
+
+           // ctx.Load(changes);
+           // ctx.ExecuteQuery();
+
+           // foreach (ChangeItem change in changes)
+           // {
+           //     Console.WriteLine(change.ItemId);
+           //     Console.WriteLine(change.ChangeType.ToString());
+               
+           // }
+
+           // list.SetPropertyBagValue("lastchecked", list.CurrentChangeToken.StringValue);
 
 
 
