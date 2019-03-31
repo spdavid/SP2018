@@ -1,0 +1,42 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/core-build/serve.schema.json",
+  "port": 4321,
+  "https": true,
+  "serveConfigurations": {
+    "default": {
+      "pageUrl": "https://folkis2018.sharepoint.com/sites/David/Lists/FunList/AllItems.aspx",
+      "customActions": {
+        "8ee4efb0-6bed-4778-9706-c08127266746": {
+          "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
+          "properties": {
+            "sampleTextOne": "One item is selected in the list",
+            "sampleTextTwo": "This command is always visible."
+          }
+        }
+      }
+    },
+    "helloWorld": {
+      "pageUrl": "https://folkis2018.sharepoint.com/sites/David",
+      "customActions": {
+        "973698e9-b993-474a-853d-67e11a1da5a4": {
+          "location": "ClientSideExtension.ApplicationCustomizer",
+          "properties": {
+            "testMessage": "Test message sfdgsdfg"
+          }
+        }
+      }
+    },
+    "helloWorld2": {
+      "pageUrl": "https://folkis2018.sharepoint.com/sites/David/Lists/FunList/AllItems.aspx",
+      "customActions": {
+        "8ee4efb0-6bed-4778-9706-c08127266746": {
+          "location": "ClientSideExtension.ListViewCommandSet.CommandBar",
+          "properties": {
+            "sampleTextOne": "One item is selected in the list",
+            "sampleTextTwo": "This command is always visible."
+          }
+        }
+      }
+    }
+  }
+}

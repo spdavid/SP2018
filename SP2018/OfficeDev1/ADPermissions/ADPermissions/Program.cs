@@ -1,4 +1,5 @@
 ﻿using ADPermissions.Helper;
+using Microsoft.Online.SharePoint.TenantAdministration;
 using Microsoft.SharePoint.Client;
 using System;
 using System.Collections.Generic;
@@ -14,52 +15,74 @@ namespace ADPermissions
     {
         static void Main(string[] args)
         {
-            string siteUrl = ConfigurationManager.AppSettings["siteUrl"];
+            //string siteUrl = ConfigurationManager.AppSettings["siteUrl"];
 
-            var ctx = ContextHelper.GetContext(siteUrl);
-            ctx.Load(ctx.Web);
+            //var ctx = ContextHelper.GetContext(siteUrl);
+            //ctx.Load(ctx.Web);
+            //ctx.ExecuteQuery();
+
+            //SiteCreationHelper.CreateOffice365Group();
+
+            //Console.WriteLine(ctx.Web.Title);
+
+            var ctx = ContextHelper.GetContext("https://folkis2018-admin.sharepoint.com");
+            Tenant t = new Tenant(ctx);
+
+            var props = t.GetSitePropertiesByUrl("https://folkis2018.sharepoint.com/sites/david", true);
+
+            ctx.Load(props);
+            props.DenyAddAndCustomizePages = DenyAddAndCustomizePagesStatus.Disabled;
+            props.Update();
             ctx.ExecuteQuery();
 
-            SiteCreationHelper.CreateOffice365Group();
+            var siteCtx = ContextHelper.GetContext("https://folkis2018.sharepoint.com/sites/david");
 
-            Console.WriteLine(ctx.Web.Title);
+            siteCtx.Web.SetPropertyBagValue("david", "rocks");
+
+            props.DenyAddAndCustomizePages = DenyAddAndCustomizePagesStatus.Enabled;
+            props.Update();
+            ctx.ExecuteQuery();
+
+            Console.WriteLine("");
+
+            //var s = t.GetSiteProperties("https://folkis2018.sharepoint.com/sites/david")
 
 
-           // List list = ctx.Web.GetListByTitle("SampleList");
+            // List list = ctx.Web.GetListByTitle("SampleList");
 
-           // Console.WriteLine(list.CurrentChangeToken.StringValue);
-
-
-           //var lastCheckedString = list.GetPropertyBagValueString("lastchecked", null);
+            // Console.WriteLine(list.CurrentChangeToken.StringValue);
 
 
+            //var lastCheckedString = list.GetPropertyBagValueString("lastchecked", null);
 
-           // ChangeQuery query = new ChangeQuery(false, false);
-           // query.Item = true;
-           // query.Add = true;
-           // query.Update = true;
-           // query.DeleteObject = true;
-           // if (lastCheckedString != null)
-           // {
-           //     ChangeToken token = new ChangeToken();
-           //     token.StringValue = lastCheckedString;
-           //     query.ChangeTokenStart = token;
-           // }
-           // query.ChangeTokenEnd = list.CurrentChangeToken;
 
-           // ChangeCollection changes = list.GetChanges(query);
 
-           // ctx.Load(changes);
-           // ctx.ExecuteQuery();
+            // ChangeQuery query = new ChangeQuery(false, false);
+            // query.Item = true;
+            // query.Add = true;
+            // query.Update = true;
+            // query.DeleteObject = true;
+            // if (lastCheckedString != null)
+            // {
+            //     ChangeToken token = new ChangeToken();
+            //     token.StringValue = lastCheckedString;
+            //     query.ChangeTokenStart = token;
+            // }
+            // query.ChangeTokenEnd = list.CurrentChangeToken;
 
-           // foreach (ChangeItem change in changes)
-           // {
-           //     Console.WriteLine(change.ItemId);
-           //     Console.WriteLine(change.ChangeType.ToString());
-               
-           // }
+            // ChangeCollection changes = list.GetChanges(query);
 
-           // list.SetPropertyBagValue("lastchecked", list.CurrentChangeToken.StringValue);
+            // ctx.Load(changes);
+            // ctx.ExecuteQuery();
+
+            // foreach (ChangeItem change in changes)
+            // {
+            //     Console.WriteLine(change.ItemId);
+            //     Console.WriteLine(change.ChangeType.ToString());
+
+            // }
+
+            // list.SetPropertyBagValue("lastchecked", list.CurrentChangeToken.StringValue);
 
 
 
