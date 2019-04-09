@@ -1,0 +1,12 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": false,
+    "environment": "spo",
+    "version": "1.8.0",
+    "libraryName": "more-react",
+    "libraryId": "9a51f6e5-ef72-471f-9e2c-a055bb828537",
+    "packageManager": "npm",
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
