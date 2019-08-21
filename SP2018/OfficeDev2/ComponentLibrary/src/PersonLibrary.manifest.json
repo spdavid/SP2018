@@ -1,0 +1,9 @@
+{
+  "id": "c538d73e-9be9-475f-a145-cdbc217635cd",
+  "alias": "PersonLibrary",
+  "componentType": "Library",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2
+}
