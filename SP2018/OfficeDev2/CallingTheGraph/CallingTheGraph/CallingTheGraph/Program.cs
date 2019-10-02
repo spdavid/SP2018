@@ -40,7 +40,7 @@ namespace CallingTheGraph
                 {
                     new Recipient()
                     {
-                        EmailAddress = new EmailAddress () {Address ="David@zalosolutions.com", Name = "David O" }
+                        EmailAddress = new EmailAddress () {Address ="David@foo.com", Name = "David O" }
                     }
                 }
             };
